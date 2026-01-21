@@ -118,12 +118,9 @@
 import React from "react";
 import { Form, Input, Button, Card, DatePicker, Select, message, Typography } from "antd";
 import { useNavigate } from "react-router-dom";
-import { UserOutlined, LockOutlined, MailOutlined, PhoneOutlined, CalendarOutlined,TeamOutlined   } from "@ant-design/icons";
-
-
-const { Text , Title } = Typography;
+import { UserOutlined, LockOutlined, MailOutlined, PhoneOutlined, CalendarOutlined, TeamOutlined } from "@ant-design/icons";
+const { Text, Title } = Typography;
 const { Option } = Select;
-
 const SignUp = () => {
   const navigate = useNavigate();
 
@@ -159,12 +156,12 @@ const SignUp = () => {
   return (
     <div style={styles.background}>
       <Card style={styles.card}>
-       <Title level={3} style={{ textAlign: "center" }}>
+        <Title level={3} style={{ textAlign: "center" }}>
           🗓️ Patient Registration
         </Title>
         <Form layout="vertical" onFinish={onFinish} size="small">
           <Form.Item name="firstname" label="First Name" rules={[{ required: true }]}>
-            <Input size="small"  prefix={<UserOutlined />} placeholder="First Name"/>
+            <Input size="small" prefix={<UserOutlined />} placeholder="First Name" />
           </Form.Item>
 
           <Form.Item name="lastname" label="Last Name" rules={[{ required: true }]}>
@@ -172,11 +169,11 @@ const SignUp = () => {
           </Form.Item>
 
           <Form.Item name="email" label="Email" rules={[{ required: true, type: "email" }]}>
-            <Input size="small" placeholder="Email"  prefix={<MailOutlined />} />
+            <Input size="small" placeholder="Email" prefix={<MailOutlined />} />
           </Form.Item>
 
           <Form.Item name="mobileno" label="Mobile No" rules={[{ required: true, len: 10 }]}>
-            <Input size="small"  prefix={<PhoneOutlined />} placeholder="Mobile no" />
+            <Input size="small" prefix={<PhoneOutlined />} placeholder="Mobile no" />
           </Form.Item>
 
           <Form.Item name="dateofbirth" label="Date of Birth" rules={[{ required: true }]}>
@@ -192,7 +189,7 @@ const SignUp = () => {
           </Form.Item>
 
           <Form.Item name="password" label="Password" rules={[{ required: true }]}>
-            <Input.Password size="small" placeholder="Enter Password" prefix={<LockOutlined />}/>
+            <Input.Password size="small" placeholder="Enter Password" prefix={<LockOutlined />} />
           </Form.Item>
 
           <Button type="primary" htmlType="submit" block size="large">

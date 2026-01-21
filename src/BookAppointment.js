@@ -1,6 +1,6 @@
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import { message, Form, Input, Button, Card, Select, DatePicker, TimePicker, Typography, Modal } from "antd";
-import { UserOutlined, HomeOutlined,MedicineBoxOutlined,CalendarOutlined,ApartmentOutlined,ClockCircleOutlined   } from "@ant-design/icons";
+import { UserOutlined, HomeOutlined, MedicineBoxOutlined, CalendarOutlined, ApartmentOutlined, ClockCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
 const { Title, Text } = Typography;
@@ -94,7 +94,7 @@ const BookAppointment = () => {
             <Select
               placeholder="Select Department"
               size="small"
-            prefix={<ApartmentOutlined />}
+              prefix={<ApartmentOutlined />}
 
               onChange={(value) => setDepartment(value)}
             >
@@ -131,7 +131,7 @@ const BookAppointment = () => {
             name="date"
             rules={[{ required: true, message: "Please select date" }]}
           >
-            <DatePicker style={{ width: "100%" }} size="small" prefix={<CalendarOutlined/>} />
+            <DatePicker style={{ width: "100%" }} size="small" prefix={<CalendarOutlined />} />
           </Form.Item>
 
           <Form.Item
@@ -139,7 +139,7 @@ const BookAppointment = () => {
             name="time"
             rules={[{ required: true, message: "Please select time" }]}
           >
-            <TimePicker style={{ width: "100%" }} format="HH:mm" size="small" prefix={<ClockCircleOutlined />}/>
+            <TimePicker style={{ width: "100%" }} format="HH:mm" size="small" prefix={<ClockCircleOutlined />} />
           </Form.Item>
 
           <Form.Item>

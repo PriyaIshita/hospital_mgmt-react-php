@@ -280,7 +280,7 @@ const Login = () => {
             
           >
            <Input
-    //prefix={<MailOutlined />}
+    prefix={<MailOutlined />}
     placeholder="Enter email"
     size="small"
   />
@@ -295,7 +295,7 @@ const Login = () => {
 
           >
             <Input.Password
-   // prefix={<LockOutlined />}
+    prefix={<LockOutlined />}
     placeholder="Enter password"
     size="small"
   />  

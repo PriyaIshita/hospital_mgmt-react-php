@@ -7,12 +7,12 @@ const Patient = () => {
   const [searchTerm, setSearchTerm] = useState({
     patient_name: "",
     address: "",
-    department:"",
+    department: "",
     docter: "",
     date: "",
     time: "",
-    booking_no:"",
-    
+    booking_no: "",
+
   });
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Patient = () => {
       item.department.toLowerCase().includes(searchTerm.department.toLowerCase()) &&
 
       item.docter.toLowerCase().includes(searchTerm.docter.toLowerCase()) &&
-      item.date.includes(searchTerm.date)&&
+      item.date.includes(searchTerm.date) &&
       item.booking_no.includes(searchTerm.booking_no)
     );
     setFilteredItems(filtered);
@@ -120,11 +120,11 @@ const Patient = () => {
               setSearchTerm({
                 patient_name: "",
                 address: "",
-                department:"",
+                department: "",
                 docter: "",
                 date: "",
                 time: "",
-                booking_no:"",
+                booking_no: "",
               });
               setFilteredItems(records);
             }}
@@ -138,7 +138,7 @@ const Patient = () => {
           columns={columns}
           dataSource={filteredItems}
           rowKey={(record, index) => index}
-          pagination={{ pageSize: 8}}
+          pagination={{ pageSize: 8 }}
           bordered
         />
       </Card>
@@ -149,13 +149,22 @@ const Patient = () => {
 const styles = {
   container: {
     padding: 24,
-    background: "#f0f2f5",
     minHeight: "100vh",
+    backgroundImage:
+      'url("https://www.designopedia.in/wp-content/uploads/2019/11/Dental-Clinic-Dr.Ameen-3-1024x650.jpg")',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    minHeight: "100vh",
+    width: "100vw",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   card: {
     borderRadius: 12,
     boxShadow: "0 6px 20px rgba(0,0,0,0.1)",
   },
-};
 
+};
 export default Patient;
