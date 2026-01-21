@@ -5,16 +5,23 @@ import BookAppointment from './BookAppointment';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Patient from './Patient';
 import Dashboard from './Dashboard';
+import SignUp from './SignUp';
+import Home from './Home';
 
 function App() {
   return (
  
  <Routes>
-     <Route path="/" element={<Login/>}/>
+ <Route path='/' element={<Home/>}/>
+ <Route path='/signup' element={<SignUp/>}/>
+     <Route path="/login" element={<Login/>}/>
+     
 
      <Route path="/BookAppointment" element={<BookAppointment/>}/>
      <Route path='/Patient' element={<Patient/>}/>
      <Route path='/dashboard' element={<Dashboard/>}/>
+     
+     
      </Routes>
  
  

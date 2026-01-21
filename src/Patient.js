@@ -138,7 +138,7 @@ const Patient = () => {
           columns={columns}
           dataSource={filteredItems}
           rowKey={(record, index) => index}
-          pagination={{ pageSize: 10 }}
+          pagination={{ pageSize: 8}}
           bordered
         />
       </Card>

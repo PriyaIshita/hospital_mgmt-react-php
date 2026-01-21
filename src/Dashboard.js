@@ -1,56 +1,129 @@
 import React from "react";
-import { Card, Row, Col, Typography } from "antd";
 import {
-  UserOutlined,
-  TeamOutlined,
-  CalendarOutlined,
-  MedicineBoxOutlined,
-} from "@ant-design/icons";
+  Layout,
+  Button,
+  Typography,
+  Carousel,
+  Row,
+  Col,
+  Card,
+} from "antd";
+import { PlusOutlined, UnorderedListOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
-const { Title } = Typography;
-
-
+const { Header, Content } = Layout;
+const { Title, Paragraph } = Typography;
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
   return (
-    <div style={{ padding: 24 }}>
-      <Title level={3}>🏥 Hospital Dashboard</Title>
+    <Layout style={{ minHeight: "50vh" }}>
+      {/* HEADER */}
+      <Header
+        style={{
+          background: "#fff",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "0 14px",
+        }}
+      >
+        <Title level={4} style={{ margin: 0 }}>
+          🏥  Hospital Management System
+        </Title>
+      </Header>
 
-      <Row gutter={16}>
-        <Col span={6}>
-          <Card>
-            <UserOutlined style={{ fontSize: 30 }} />
-            <h3>Total Patients</h3>
-            <h2>120</h2>
-          </Card>
-        </Col>
+      {/* CONTENT */}
+      <Content style={{ padding: 24 }}>
+        {/* IMAGE + SIDE CONTENT */}
+        <Row gutter={24} align="middle" style={{ minHeight: "60vh"}} >
+          {/* LEFT: IMAGE SLIDER */}
+          <Col span={14}>
+            <Carousel autoplay>
+              <img
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef"
+                alt="Hospital"
+                style={sliderStyle}
+              />
+              <img
+                src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3"
+                alt="Doctors"
+                style={sliderStyle}
+              />
+              <img
+                src="https://images.unsplash.com/photo-1504439468489-c8920d796a29"
+                alt="Care"
+                style={sliderStyle}
+              />
+            </Carousel>
+          </Col>
 
-        <Col span={6}>
-          <Card>
-            <TeamOutlined style={{ fontSize: 30 }} />
-            <h3>Total Doctors</h3>
-            <h2>25</h2>
-          </Card>
-        </Col>
+          {/* RIGHT: TEXT + BUTTON */}
+          <Col span={10}>
+            <Card>
+              <Title level={3}>Welcome to Our Hospital</Title>
+              <Paragraph>
+                We provide quality healthcare with experienced doctors and
+                modern facilities. Book your appointment easily in just one
+                click.
+              </Paragraph>
 
-        <Col span={6}>
-          <Card>
-            <CalendarOutlined style={{ fontSize: 30 }} />
-            <h3>Today Appointments</h3>
-            <h2>18</h2>
-          </Card>
-        </Col>
+              <Button
+                type="primary"
+                size="large"
+                icon={<PlusOutlined />}
+                onClick={() => navigate("/BookAppointment")}
+                style={{ marginBottom: 16 }}
+                
+               >
+                Book Appointment
+              </Button>
 
-        <Col span={6}>
-          <Card>
-            <MedicineBoxOutlined style={{ fontSize: 30 }} />
-            <h3>Departments</h3>
-            <h2>6</h2>
-          </Card>
-        </Col>
-      </Row>
-    </div>
+              <br />
+
+              <Button
+                icon={<UnorderedListOutlined />}
+                onClick={() => navigate("/Patient")}
+              >
+                View Appointments
+              </Button>
+            </Card>
+          </Col>
+        </Row>
+
+        {/* INFO SECTION */}
+        <Row gutter={16} style={{ marginTop: 32 }}>
+          <Col span={8}>
+            <Card title="👨‍⚕️ Expert Doctors">
+              Qualified doctors across multiple departments.
+            </Card>
+          </Col>
+
+          <Col span={8}>
+            <Card title="📅 Easy Appointments">
+              Book appointments in just one click.
+            </Card>
+          </Col>
+
+          <Col span={8}>
+            <Card title="🏥 Quality Care">
+              Patient-friendly hospital environment.
+            </Card>
+          </Col>
+        </Row>
+      </Content>
+    </Layout>
   );
+};
+
+const sliderStyle = {
+  width: "100%",
+  height: "60vh",      // 👈 Fits desktop height
+  minHeight: "300px",  // 👈 Safe for small screens
+  maxHeight: "500px",  // 👈 Prevents over-stretching
+  objectFit: "cover",
+  borderRadius: 12,
 };
 
 export default Dashboard;
